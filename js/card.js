@@ -1,0 +1,4 @@
+var Card = {
+    // RANK AND SUIT AS CONSTRUCTOR
+    // CARD OBJECT
+}

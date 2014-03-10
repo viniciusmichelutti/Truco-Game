@@ -1,4 +1,10 @@
-var Card = {
-    // RANK AND SUIT AS CONSTRUCTOR
-    // CARD OBJECT
-}
+function Card(rank, suit) {
+
+    this.rank = rank;
+    this.suit = suit;
+    
+};
+
+Card.prototype.sayMe = function() {
+    console.log("I'm a " + this.rank + " of " + this.suit);
+};

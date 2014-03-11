@@ -1,4 +1,4 @@
-var Roles = {
+var Rules = {
 
     /**
      * Who wins the hand?
@@ -70,7 +70,7 @@ var Roles = {
         var pKey = TrucoAPI.getKeyByValue(Deck.numbers, playerCard.rank);
         var cKey = TrucoAPI.getKeyByValue(Deck.numbers, computerCard.rank);
         
-        if (pKey < cKey) {
+        if (parseInt(pKey) < parseInt(cKey)) {
             return TrucoAPI.players.PLAYER;   
         }
         

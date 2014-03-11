@@ -30,7 +30,7 @@ var TrucoAPI = {
         this.computerHand = Deck.newHand();
         this.playerHand = Deck.newHand();
         this.river = Deck.giveFirstCard();
-        this.manilha = Roles.getNextCard(this.river);
+        this.manilha = Rules.getNextCard(this.river);
         
         console.log("Computer cards:");
         console.log(this.computerHand);
@@ -47,13 +47,15 @@ var TrucoAPI = {
         var computerCard = TrucoAI.makeChoice(playerCard);
         
         // WHO WONS? PLAYER OR COMPUTER?
-        var winner = Roles.whoWin(playerCard, computerCard);
+        var winner = Rules.whoWin(playerCard, computerCard);
         
         // REMOVE FROM HANDS THE CARDS
-        this.playerHand.splice(playerCard, 1);
-        this.computerHand.splice(computerCard, 1);
+        var pIndex = this.getIndexFromArray(this.playerHand, playerCard);
+        var cIndex = this.getIndexFromArray(this.computerHand, computerCard);
+        this.playerHand.splice(pIndex, 1);
+        this.computerHand.splice(cIndex, 1);
         
-        console.log(winner + " ganhou!");
+        console.log("Vitória: " + winner);
     },
     
     getKeyByValue: function(obj, value) {
@@ -61,6 +63,14 @@ var TrucoAPI = {
             if( obj.hasOwnProperty( prop ) ) {
                  if( obj[ prop ] === value )
                      return prop;
+            }
+        }
+    },
+    
+    getIndexFromArray: function(obj, card) {
+        for (var x = 0; x < obj.length; x++) {
+            if (obj[x].rank == card.rank && obj[x].suit == card.suit) {
+                return x;
             }
         }
     }

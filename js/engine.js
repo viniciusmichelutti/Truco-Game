@@ -55,10 +55,8 @@ var TrucoAPI = {
         this.playerHand.splice(pIndex, 1);
         this.computerHand.splice(cIndex, 1);
         
-        if (this.round.length < 3) {
-            this.round.push(winner);
-            console.log("Vencedor da rodada: " + winner);
-        }
+        this.round.push(winner);
+        console.log("Vencedor da rodada: " + winner);
         
         if (this.round.length == 3) {
             console.log("Vitórias: " + this.round);

@@ -55,7 +55,16 @@ var TrucoAPI = {
         this.playerHand.splice(pIndex, 1);
         this.computerHand.splice(cIndex, 1);
         
-        console.log("Vitória: " + winner);
+        if (this.round.length < 3) {
+            this.round.push(winner);
+            console.log("Vencedor da rodada: " + winner);
+        }
+        
+        if (this.round.length == 3) {
+            console.log("Vitórias: " + this.round);
+            console.log("\n\n")
+            this.startHands();
+        }
     },
     
     getKeyByValue: function(obj, value) {

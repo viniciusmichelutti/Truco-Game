@@ -18,7 +18,8 @@ var TrucoAPI = {
 	},
 
     startGame: function() {
-		// restart counter / score
+		StatusView.resetScore();
+        StatusView.clearLog();
         StatusView.addStatus("Iniciando novo jogo, sente-se confiante?");
 		this.startHands();
 	},
@@ -67,7 +68,9 @@ var TrucoAPI = {
         
         if (this.round.length == 3) {
             console.log("Vitórias: " + this.round);
-            console.log("\n\n")
+            console.log("\n\n");
+            var player = Rules.whoWinTheRound(this.round);
+            StatusView.addScore(1, player); // TODO e se estiver trucado?
             this.startHands();
         }
     },

@@ -1,5 +1,9 @@
 var Rules = {
 
+    whoWinTheRound: function(round) {
+        
+    },
+    
     /**
      * Who wins the hand?
      * @return TrucoAPI.players object

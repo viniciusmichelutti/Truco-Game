@@ -19,18 +19,22 @@ var TrucoAPI = {
 
     startGame: function() {
 		// restart counter / score
+        StatusView.addStatus("Iniciando novo jogo, sente-se confiante?");
 		this.startHands();
 	},
 
 	startHands: function() {
+        StatusView.addStatus("Embaralhando cartas...")
 		Deck.newDeck();
         Deck.shuffle();
 
+        StatusView.addStatus("Distribuindo cartas para ambos os jogadores.")
         this.round = [];
         this.computerHand = Deck.newHand();
         this.playerHand = Deck.newHand();
         this.river = Deck.giveFirstCard();
         this.manilha = Rules.getNextCard(this.river);
+        StatusView.addStatus("Virou a carta: " + this.river.sayMe());
         
         console.log("Computer cards:");
         console.log(this.computerHand);
@@ -43,8 +47,11 @@ var TrucoAPI = {
 	},
 
     playCard: function(playerCard) {
+        StatusView.addStatus("Jogador jogou a carta " + playerCard.sayMe());
+        
         // LETS THE COMPUTER THINK AND MAKE A CHOICE OF PLAY
         var computerCard = TrucoAI.makeChoice(playerCard);
+        StatusView.addStatus("Computador responde a jogada com a carta " + computerCard.sayMe());
         
         // WHO WONS? PLAYER OR COMPUTER?
         var winner = Rules.whoWin(playerCard, computerCard);
@@ -56,7 +63,7 @@ var TrucoAPI = {
         this.computerHand.splice(cIndex, 1);
         
         this.round.push(winner);
-        console.log("Vencedor da rodada: " + winner);
+        StatusView.addStatus("O " + winner + " ganhou essa rodada.");
         
         if (this.round.length == 3) {
             console.log("Vitórias: " + this.round);
@@ -66,9 +73,9 @@ var TrucoAPI = {
     },
     
     getKeyByValue: function(obj, value) {
-        for( var prop in obj ) {
-            if( obj.hasOwnProperty( prop ) ) {
-                 if( obj[ prop ] === value )
+        for (var prop in obj) {
+            if (obj.hasOwnProperty(prop)) {
+                 if (obj[prop] === value)
                      return prop;
             }
         }

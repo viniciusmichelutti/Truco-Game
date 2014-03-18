@@ -18,8 +18,6 @@ var Deck = {
     cards: null,
     
     newDeck: function() {
-        console.log("Generating a new deck with all cards");
-        
         this.cards = new Array();
         for (n in this.numbers) {
             for (s in this.suits) {

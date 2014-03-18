@@ -6,5 +6,5 @@ function Card(rank, suit) {
 };
 
 Card.prototype.sayMe = function() {
-    console.log("I'm a " + this.rank + " of " + this.suit);
+    return this.rank + " de " + this.suit;
 };

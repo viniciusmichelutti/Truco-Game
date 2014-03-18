@@ -5,6 +5,11 @@ var StatusView = {
         $('#status').stop().animate({scrollTop: $('#status').prop("scrollHeight")}, 'fast');
     },
     
+    addSeparator: function() {
+        $("#status div").append("<hr />");
+        $("#status div p").addClass("old");
+    },
+    
     resetScore: function() {
         
     },

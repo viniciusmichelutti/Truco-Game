@@ -10,6 +10,7 @@ body { font-family:'Raleway', Verdana, Tahoma, sans-serif;  font-size:12px; colo
 #score { height:10%; top:0px; border-bottom:1px solid #ccc; }
 #status { overflow-y:scroll; height:80%; }
 #status p { margin:10px 0; }
+#status p.old { color:#999; }
 #controls { bottom:0px; height:10%; border-top:1px solid #ccc; }
 
 .resultDiv { display: block; width: 70px; float: left; text-align: center; }

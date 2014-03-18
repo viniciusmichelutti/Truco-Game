@@ -25,6 +25,10 @@ var TrucoAPI = {
 	},
 
 	startHands: function() {
+        if (this.round.length > 0) {
+            StatusView.addSeparator();
+        }
+        
         StatusView.addStatus("Embaralhando cartas...")
 		Deck.newDeck();
         Deck.shuffle();

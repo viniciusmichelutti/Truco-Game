@@ -13,8 +13,11 @@ var TrucoAPI = {
     },
 
 	init: function() {
-		// binds
-        this.startGame();
+        var _this = this;
+		$("#startGame").on("click", function(e) {
+            GameView.hideMessageOverlay();
+            _this.startGame();
+        });
 	},
 
     startGame: function() {

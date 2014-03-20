@@ -17,3 +17,10 @@ body { font-family:'Raleway', Verdana, Tahoma, sans-serif;  font-size:12px; colo
 .result { font-weight: bold; font-size: 32px; }
 .result.player { color:#58a770; }
 .result.computer { color:#ff5d5d; }
+
+.overlay{ position:absolute; top:0; left:0; z-index:10; width:100%; height:100%; background-color: rgba(0,0,0,0.5); }
+#gameWarnings { position:absolute; top:50%; left:0; z-index: 11; width:100%; height:200px; margin:auto; margin-top:-100px; text-align:center; font-size:48px; color:#fff; }
+
+.button { padding:12px; color:#fff; background-color:#45a1c3; font-size:14px; font-weight:700; text-decoration:none; text-align:center; border-radius:3px; }
+.button:hover { background-color:#3d95b5; }
+.block { display:block; }

@@ -71,7 +71,18 @@ var TrucoAPI = {
         this.computerHand.splice(cIndex, 1);
         
         this.round.push(winner);
-        StatusView.addStatus("O " + winner + " ganhou essa rodada.");
+        if (winner != this.players.DRAW) {
+            StatusView.addStatus("O " + winner + " ganhou essa rodada.");
+        }
+        
+        if (winner == this.players.COMPUTER) {
+            GameView.setTempMessage("Computador ganhou, seu pato!");
+        } else if () {
+            GameView.setTempMessage("Você ganhou! :(");
+        } else {
+            GameView.setTempMessage("Empate!");
+            StatusView.addStatus("Empate!");
+        }
         
         if (this.round.length == 3) {
             console.log("Vitórias: " + this.round);

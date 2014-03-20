@@ -12,23 +12,27 @@ var Sentences = {
     
     playerWinsTheMove: [
         "Você ganhou :(",
-        "Você ganhou, não vale roubar!"
+        "Você ganhou, não vale roubar!",
+        "Ganhou! Tá usando cheater?",
+        "Ganhou! Já tá apelando né?"
     ],
     
     computerWinsTheRound: [
-        
+        "Perdeu! Se continuar assim vai ser humilhação!",
+        "Perdeu, vai dar ponto de graça?"
     ],
     
     playerWinsTheRound: [
-        
+        "Você venceu, mas foi sorte!"
     ],
     
     computerCallsTruco: [
-        
+        "TRUCO!!!!",
+        "Truco! Vai correr?"
     ],
     
     playerCallsTruco: [
-        
+        "TRUCO!!!!"
     ],
     
     getRandomSentenceFrom: function(arr) {

@@ -76,9 +76,11 @@ var TrucoAPI = {
         }
         
         if (winner == this.players.COMPUTER) {
-            GameView.setTempMessage("Computador ganhou, seu pato!");
+            var msg = Sentences.getRandomSentenceFrom(Sentences.computerWinsTheMove);
+            GameView.setTempMessage(msg);
         } else if (winner == this.players.PLAYER) {
-            GameView.setTempMessage("Você ganhou! :(");
+            var msg = Sentences.getRandomSentenceFrom(Sentences.playerWinsTheMove);
+            GameView.setTempMessage(msg);
         } else {
             GameView.setTempMessage("Empate!");
             StatusView.addStatus("Empate!");

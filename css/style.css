@@ -3,11 +3,11 @@
 
 body { font-family:'Raleway', Verdana, Tahoma, sans-serif;  font-size:12px; color:#333; line-height:16px; }
 
-#game { position:absolute; width:80%; height:100%; background-color:#fff; /*background-image:url(../imgs/table.png); background-size:cover;*/ }
-#statusContainer { background-color:#f5f5f5; width:20%; height:100%; position:fixed; top:0; right:0; border-left:1px solid #ccc; }
+#game { position:absolute; width:80%; height:100%; background-color:#fff; /*background-image:url(../imgs/table.jpg); background-size:cover;*/ }
+#statusContainer { min-width:260px; background-color:#f5f5f5; width:20%; height:100%; position:fixed; top:0; right:0; border-left:1px solid #ccc; }
 #statusContainer div { position:relative; }
 #statusContainer div div { padding:15px; }
-#score { height:10%; top:0px; border-bottom:1px solid #ccc; }
+#score { height:10%; min-height:90px; top:0px; border-bottom:1px solid #ccc; }
 #status { overflow-y:scroll; height:80%; }
 #status p { margin:10px 0; }
 #status p.old { color:#999; }

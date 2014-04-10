@@ -44,6 +44,8 @@ var TrucoAPI = {
         this.manilha = Rules.getNextCard(this.river);
         StatusView.addStatus("Virou a carta: " + this.river.sayMe());
         
+        GameView.redistributeBothCards();
+        
         console.log("Computer cards:");
         console.log(this.computerHand);
         
@@ -69,6 +71,8 @@ var TrucoAPI = {
         var cIndex = this.getIndexFromArray(this.computerHand, computerCard);
         this.playerHand.splice(pIndex, 1);
         this.computerHand.splice(cIndex, 1);
+        
+        GameView.redistributeBothCards();
         
         this.round.push(winner);
         if (winner != this.players.DRAW) {

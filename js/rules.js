@@ -1,7 +1,30 @@
 var Rules = {
 
-    whoWinTheRound: function(round) {
+    whoWinsTheRound: function(round) {
+        var playerCount = 0;
+        var computerCount = 0;
+        $.each(round, function(i, o) {
+            if (o === TrucoAPI.players.COMPUTER) {
+                computerCount++;   
+            } else if (o === TrucoAPI.players.PLAYER) {
+                playerCount++;   
+            }
+        });
         
+        if (playerCount >= 2) return TrucoAPI.players.PLAYER;
+        if (computerCount >= 2) return TrucoAPI.players.COMPUTER;
+        
+        if (round.length == 3) {
+            if (round[0] != TrucoAPI.players.DRAW) {
+                return round[0];
+            } else if (round[1] != TrucoAPI.players.DRAW) {
+                return round[1];
+            } else {
+                return round[2];   
+            }
+        }
+        
+        return undefined;
     },
     
     /**

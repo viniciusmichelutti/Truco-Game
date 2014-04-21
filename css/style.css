@@ -25,7 +25,29 @@ body { font-family:'Raleway', Verdana, Tahoma, sans-serif;  font-size:12px; colo
 .button:hover { background-color:#3d95b5; }
 .block { display:block; }
 
-#computerHand { position:absolute; top:0; left:15%; }
+#computerHand { position:absolute; top:0; left:25%; }
 #playerHand { position:absolute; bottom:0; left:25%; }
-.card { float:left; margin-right:10px; display:block; height:180px; width:150px; cursor:pointer; border:1px solid #eee; border-radius:3px; }
+.card { border:7px solid transparent; float:left; margin-right:10px; display:block; height:130px !important; width:110px !important; cursor:pointer; border-radius:3px; }
 .card img { width:100%; height:100%; }
+#playerHand .card:hover { border:7px solid #4e81be; }
+
+#playedCards { position: absolute; top: 200px; left: 100px; }
+#playedCards div { width:200px; height:200px; }
+#playedCards div .card { position:absolute; }
+#playedCards div .card:last-child {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);   
+}
+.playedRound1, .playedRound2, .playedRound3 { float: left; }
+
+#manilha { color: #fff; position:absolute; bottom: 200px; left:-70px; font-weight: bold; }
+#manilha .horizontalCard {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);  
+}

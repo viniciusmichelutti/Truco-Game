@@ -11,14 +11,17 @@ var StatusView = {
     },
     
     resetScore: function() {
-        
+        $(".result.computer").html("00");
+        $(".result.player").html("00");
     },
     
     addScore: function(qtt, player) {
         if (player == TrucoAPI.players.COMPUTER) {
-            
+            var score = parseInt($(".result.computer").html());
+            $(".result.computer").html(score + qtt);
         } else if (player == TrucoAPI.players.PLAYER) {
-            
+            var score = parseInt($(".result.player").html());
+            $(".result.player").html(score + qtt);
         } else if (player == TrucoAPI.players.DRAW) {
             
         }

@@ -6,6 +6,7 @@ var TrucoAPI = {
     playerHand: null,
     manilha: null,
     pcLastCard: null,
+	showPCCard: false,
 
     players: {
         COMPUTER: "Computador",
@@ -25,6 +26,11 @@ var TrucoAPI = {
             var card = _this.playerHand[index];
             _this.playCard(card);
         });
+		
+		$(document).on("click", "#computerHand .card", function(e){
+			GameView.redistributeCards(TrucoAPI.players.COMPUTER, TrucoAPI.computerHand, !_this.showPCCard);
+			_this.showPCCard = !_this.showPCCard;
+		});
 	},
 
     startGame: function() {
@@ -96,22 +102,14 @@ var TrucoAPI = {
         if (winner != this.players.DRAW) {
             StatusView.addStatus("O " + winner + " ganhou essa rodada.");
         }
-        
-        if (winner == this.players.COMPUTER) {
-            var msg = Sentences.getRandomSentenceFrom(Sentences.computerWinsTheMove);
-            GameView.setTempMessage(msg);
-        } else if (winner == this.players.PLAYER) {
-            var msg = Sentences.getRandomSentenceFrom(Sentences.playerWinsTheMove);
-            GameView.setTempMessage(msg);
-        } else {
-            GameView.setTempMessage("Empate!");
-            StatusView.addStatus("Empate!");
-        }
-        
+              
         var roundWinner = Rules.whoWinsTheRound(this.round);
         if (roundWinner) {
-            StatusView.addStatus(roundWinner + " ganhou este round.");
+			GameView.showRoundWinner(roundWinner); // Show message in the screen
+			
+			StatusView.addStatus(roundWinner + " ganhou este round.");
             StatusView.addScore(1, roundWinner); // TODO e se estiver trucado?
+			
             GameView.resetPlayedCards();
             this.startHands();
         }

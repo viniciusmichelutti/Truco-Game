@@ -16,17 +16,26 @@ var StatusView = {
     },
     
     addScore: function(qtt, player) {
+		var score = 0;
         if (player == TrucoAPI.players.COMPUTER) {
-            var score = parseInt($(".result.computer").html());
+            score = parseInt($(".result.computer").html());
             $(".result.computer").html(score + qtt);
         } else if (player == TrucoAPI.players.PLAYER) {
-            var score = parseInt($(".result.player").html());
+            score = parseInt($(".result.player").html());
             $(".result.player").html(score + qtt);
         } else if (player == TrucoAPI.players.DRAW) {
-            
         }
+		
+		if (score+qtt >= 12) {
+			GameView.setTempMessage("O " + player + " ganhou este jogo.");
+			setTimeout(this.refresh, 1200);
+		}
     },
     
+	refresh: function() {
+		location.reload();
+	},
+	
     clearLog: function() {
         $("#status div").html("");   
     }

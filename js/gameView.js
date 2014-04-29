@@ -15,7 +15,7 @@ var GameView = {
         setTimeout(this.hideMessageOverlay, temp);
     },
     
-    redistributeCards: function(player, cards) {
+    redistributeCards: function(player, cards, show) {
         var container = $("#computerHand");
         if (player === TrucoAPI.players.PLAYER) {
             container = $("#playerHand");
@@ -24,7 +24,12 @@ var GameView = {
         var html = "";
         for (var x = 0; x < cards.length; x++) {
             var index = x+1;
-            html += this.mountCardImage(index, cards[x]);
+            
+			if (player === TrucoAPI.players.PLAYER || show) {
+				html += this.mountCardImage(index, cards[x]);
+			} else {
+				html += this.mountBackCardImage(index, cards[x]);
+			}
         }
         container.html(html);
         
@@ -41,6 +46,14 @@ var GameView = {
         return html;
     },
     
+	mountBackCardImage: function(index, card) {
+        var html = "<div class='card card" + index + "'>";
+        html += "<img src='imgs/cards/back.jpg' />";
+        html += "</div>"
+        
+        return html;
+    },
+	
     redistributeBothCards: function() {
         this.redistributeCards(TrucoAPI.players.COMPUTER, TrucoAPI.computerHand);   
         this.redistributeCards(TrucoAPI.players.PLAYER, TrucoAPI.playerHand);   
@@ -57,6 +70,19 @@ var GameView = {
         for (var x = 1; x <=3; x++) {
             $("#playedCards .playedRound" + x).html("");
         }
-    }
+    },
+	
+	showRoundWinner: function(roundWinner) {
+		if (roundWinner == TrucoAPI.players.COMPUTER) {
+			var msg = Sentences.getRandomSentenceFrom(Sentences.computerWinsTheMove);
+			GameView.setTempMessage(msg);
+		} else if (roundWinner == TrucoAPI.players.PLAYER) {
+			var msg = Sentences.getRandomSentenceFrom(Sentences.playerWinsTheMove);
+			GameView.setTempMessage(msg);
+		} else {
+			GameView.setTempMessage("Empate!");
+			StatusView.addStatus("Empate!");
+		}
+	}
     
 }

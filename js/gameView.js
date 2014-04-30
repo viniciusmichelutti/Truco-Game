@@ -15,7 +15,7 @@ var GameView = {
         setTimeout(this.hideMessageOverlay, temp);
     },
     
-    redistributeCards: function(player, cards, show) {
+    redistributeCards: function(player, cards) {
         var container = $("#computerHand");
         if (player === TrucoAPI.players.PLAYER) {
             container = $("#playerHand");
@@ -25,7 +25,7 @@ var GameView = {
         for (var x = 0; x < cards.length; x++) {
             var index = x+1;
             
-			if (player === TrucoAPI.players.PLAYER || show) {
+			if (player === TrucoAPI.players.PLAYER || TrucoAPI.showPCCard) {
 				html += this.mountCardImage(index, cards[x]);
 			} else {
 				html += this.mountBackCardImage(index, cards[x]);

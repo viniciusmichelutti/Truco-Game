@@ -28,8 +28,8 @@ var TrucoAPI = {
         });
 		
 		$(document).on("click", "#computerHand .card", function(e){
-			GameView.redistributeCards(TrucoAPI.players.COMPUTER, TrucoAPI.computerHand, !_this.showPCCard);
 			_this.showPCCard = !_this.showPCCard;
+			GameView.redistributeCards(TrucoAPI.players.COMPUTER, TrucoAPI.computerHand);
 		});
 	},
 

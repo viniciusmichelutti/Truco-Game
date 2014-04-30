@@ -70,7 +70,7 @@ var Rules = {
             return TrucoAPI.players.PLAYER;
         }
         
-        return null;
+        return TrucoAPI.players.DRAW;
     },
     
     getSuitNumber: function(suit) {
